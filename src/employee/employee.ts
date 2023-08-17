@@ -53,10 +53,10 @@ export class Employee {
     createEmpInBulk(num: number): Promise<EmployeeDetails[]> {
         let empList: EmployeeDetails[] = [];
         while(num !== 0) {
-            const id = this.idGenerator().next().value;
-            const name = 'Emp'+ id;
-            const gender = ((num % 2 === 0) ? 'Female' : 'Male') ?? 'Choose not to specify';
-            const age = 30;
+            const id: number = this.idGenerator().next().value;
+            const name: string = 'Emp'+ id;
+            const gender: Gender = ((num % 2 === 0) ? 'Female' : 'Male') ?? 'Choose not to specify';
+            const age: number = 30;
             this.employeeList.set(id,{id, name, gender, age});
             empList.push({id, name, gender, age});
             num--;
@@ -76,12 +76,13 @@ export class Employee {
     getEmpAboveAge(id: number): AdditionalMethodforAge | undefined {
         const emp  = this.getEmployeeDetails(id);
         if (emp?.age! > 40) {
-            return {yearsLeft : this.getEmpYearsLeft};
+            return {yearsLeft : (id) => this.getEmpYearsLeft(id)};
         }
     }
 
-    private getEmpYearsLeft(): void {
-        console.log('Emp above 40');
+    private getEmpYearsLeft(id: number): void {
+        const emp = this.employeeList.get(id);
+        console.log(`Employee ID${id} has ${60-emp?.age!} years left to retire`);
     }
 
 }

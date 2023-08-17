@@ -1,35 +1,35 @@
 import { Employee } from "./employee/employee";
 
-const emp1 = new Employee();
+const emp = new Employee();
 
 //Adding Employees
-emp1.addEmployee('Parul', 'Female', 26);
-emp1.addEmployee('Sam', 'Male', 30);
-emp1.addEmployee('Luke', 'Male', 41);
-emp1.addEmployee('Aelin', 'Female', 28);
-emp1.addEmployee('Josh', 'Male', 32);
-emp1.addEmployee('Sam', 'Male', 42);
+emp.addEmployee('Parul', 'Female', 26);
+emp.addEmployee('Sam', 'Male', 30);
+emp.addEmployee('Luke', 'Male', 41);
+emp.addEmployee('Aelin', 'Female', 28);
+emp.addEmployee('Josh', 'Male', 32);
+emp.addEmployee('Sam', 'Male', 42);
 
 //Fetching Employee details with ID
 const id = 1002;
-const empDetails = emp1.getEmployeeDetails(id);
+const empDetails = emp.getEmployeeDetails(id);
 console.log(`Employee details for ID${id} - ${JSON.stringify(empDetails)}`);
 
 //Deleting Employee using ID
-emp1.removeEmployee(1005);
+emp.removeEmployee(1005);
 
 //Fetch all employees
-const allEmp = emp1.getAllEmployees();
+const allEmp = emp.getAllEmployees();
 console.log('List of all employees:');
-for (let emp of allEmp) {
-    console.log(emp);
+for (let empdetails of allEmp) {
+    console.log(empdetails);
 }
 
 //Update Employee Details
-emp1.updateEmployeeDetails(1002,'Sam','Male',24); //initially { id: 1005, name: 'Sam', gender: 'Male', age: 30 }
+emp.updateEmployeeDetails(1002,'Sam','Male',24); //initially { id: 1002, name: 'Sam', gender: 'Male', age: 30 }
 
 //Display dictionary containing employees with unique names
-const empUniqueNames = emp1.getEmpUniqueNames();
+const empUniqueNames = emp.getEmpUniqueNames();
 console.log('Dictionary containing unique employee names:');
 for(let emp of empUniqueNames) {
     console.log(emp);
@@ -37,7 +37,7 @@ for(let emp of empUniqueNames) {
 
 //Async function to add n number of employees
 async function createEmployees(num: number) {
-    return await emp1.createEmpInBulk(num);
+    return await emp.createEmpInBulk(num);
 }
 createEmployees(10).then(empList => {
     console.log('Employee created using async function:');
@@ -45,7 +45,8 @@ createEmployees(10).then(empList => {
 });
 
 //invoking method based on condition
-emp1.getEmpAboveAge(1006)?.yearsLeft();
+const empYears = emp.getEmpAboveAge(1006);
+empYears?.yearsLeft(1006);
 
 
 

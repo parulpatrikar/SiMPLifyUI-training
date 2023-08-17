@@ -6,7 +6,7 @@ export interface EmployeeDetails {
 }
 
 export interface AdditionalMethodforAge {
-    yearsLeft: () => void;
+    yearsLeft: (id: number) => void;
 }
 
 export type Gender = 'Male' | 'Female' | 'Choose not to specify'

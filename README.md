@@ -1,10 +1,10 @@
 # SiMPLifyUI-training
 
-# Steps:
+## Steps:
 - npm install
 - npm run start
 
-# Week1
+## Week1
 - Create a class which allows me to create/manage my employees with different operations.
 - Use your own type for gender for each employee and ensure that once the employee is created its gender value cannot be changed further.
 - Write one async function which will create specific number of employees and return them.
