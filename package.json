@@ -1,0 +1,16 @@
+{
+  "name": "SiMPLifyUI-training",
+  "version": "1.0.0",
+  "description": "SiMPLifyUI-training exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node src/main.ts"
+  },
+  "author": "Parul Patrikar",
+  "license": "ISC",
+  "dependencies": {
+    "node": "^20.5.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^3.9.10"
+  }
+}
